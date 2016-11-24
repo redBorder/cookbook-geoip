@@ -17,12 +17,19 @@ action :add do
       flush_cache [:before]
     end
 
+    execute "geoipupdate" do
+      command 'geoipupdate'
+      ignore_failure true
+      action :nothing
+    end
+
     template "/etc/GeoIP.conf" do
       source "GeoIP.conf.erb"
       owner 'root'
       group 'root'
       mode 0644
       cookbook "geoip"
+      notifies :run, 'execute[geoipupdate]', :immediately
     end
 
     Chef::Log.info("GeoIP cookbook has been processed")
