@@ -29,7 +29,7 @@ action :add do
       group 'root'
       mode 0644
       cookbook "geoip"
-      notifies :run, 'execute[geoipupdate]', :immediately
+      notifies :run, 'execute[geoipupdate]', :delayed
     end
 
     Chef::Log.info("GeoIP cookbook has been processed")
