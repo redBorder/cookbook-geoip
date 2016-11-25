@@ -7,14 +7,11 @@
 action :add do
   begin
 
-    yum_package "GeoIP" do
-      action :upgrade
-      flush_cache [:before]
-    end
-
-    yum_package "GeoIP-update" do
-      action :upgrade
-      flush_cache [:before]
+    %w[ GeoIP GeoIP-GeoLite-data GeoIP-GeoLite-data-extra geoipupdate geoipupdate-cron ].each do |pack|
+      yum_package pack do
+        action :upgrade
+        flush_cache [:before]
+      end
     end
 
     execute "geoipupdate" do
@@ -41,12 +38,12 @@ end
 action :remove do
   begin
 
-    yum_package "GeoIP" do
-      action :remove
-    end
-
-    yum_package "GeoIP-update" do
-      action :remove
+    %w[ geoipupdate-cron geoipupdate GeoIP-GeoLite-data ].each do |pack|
+      # packs GeoIP and GeoIP-GeoLite-data-extra are removed by dependencies
+      yum_package pack do
+        action :remove
+        ignore_failure true
+      end
     end
 
     Chef::Log.info("GeoIP cookbook has been processed")
