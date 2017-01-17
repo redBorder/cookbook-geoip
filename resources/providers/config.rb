@@ -37,18 +37,8 @@ end
 
 action :remove do
   begin
-
-    %w[ geoipupdate-cron geoipupdate GeoIP-GeoLite-data ].each do |pack|
-      # packs GeoIP and GeoIP-GeoLite-data-extra are removed by dependencies
-      yum_package pack do
-        action :remove
-        ignore_failure true
-      end
-    end
-
     Chef::Log.info("GeoIP cookbook has been processed")
   rescue => e
     Chef::Log.error(e.message)
   end
 end
-
