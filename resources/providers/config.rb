@@ -5,6 +5,8 @@
 #
 
 action :add do
+  user_id = new_resource.user_id
+  license_key = new_resource.license_key
   begin
 
     %w[ GeoIP GeoIP-GeoLite-data GeoIP-GeoLite-data-extra geoipupdate geoipupdate-cron ].each do |pack|
@@ -26,6 +28,7 @@ action :add do
       group 'root'
       mode 0644
       cookbook "geoip"
+      variables(:user_id => user_id, :license_key => license_key)
       notifies :run, 'execute[geoipupdate]', :delayed
     end
 
