@@ -7,4 +7,6 @@ actions :add, :remove
 default_action :add
 
 attribute :user_id, :kind_of => Fixnum, :default => 712324
-attribute :license_key, :kind_of => Array, :default => "WCr9s2QoEPWz"
+
+# TODO: Get rid of this hardcode license
+attribute :license_key, :kind_of => String, :default => "WCr9s2QoEPWz"
