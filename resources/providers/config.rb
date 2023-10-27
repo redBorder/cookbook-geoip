@@ -10,7 +10,7 @@ action :add do
   begin
 
     %w[ GeoIP GeoIP-GeoLite-data GeoIP-GeoLite-data-extra geoipupdate geoipupdate-cron ].each do |pack|
-      yum_package pack do
+      dnf_package pack do
         action :upgrade
         flush_cache [:before]
       end
