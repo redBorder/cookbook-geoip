@@ -1,12 +1,8 @@
-#
-# Cookbook Name:: geoip
+# Cookbook:: geoip
 # Recipe:: default
-#
-# Copyright 2016, redborder
-#
-# All rights reserved - Do Not Redistribute
-#
+# Copyright:: 2024, redborder
+# License:: Affero General Public License, Version 3
 
-geoip_config "config" do
+geoip_config 'config' do
   action :add
 end
