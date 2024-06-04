@@ -1,5 +1,16 @@
 cookbook-geoip CHANGELOG
-==========================
+===============
+
+## 0.0.3
+
+  - Miguel Negron
+    - [93fcb56] lint resources
+    - [fe9e2d7] lint recipes
+    - [4da4374] lint providers
+    - [0500f5a] lint attributes
+    - [5e8bb2f] Update README.md
+    - [1b8a441] Update rpm.yml
+    - [49522b3] Update metadata.rb
 
 This file is used to list changes made in each version of the geoip cookbook.
 
