@@ -25,6 +25,9 @@ chmod -R 0755 %{buildroot}%{cookbook_path}
 install -D -m 0644 README.md %{buildroot}%{cookbook_path}/README.md
 
 %pre
+if [ -d /var/chef/cookbooks/geoip ]; then
+    rm -rf /var/chef/cookbooks/geoip
+fi
 
 %post
 case "$1" in
@@ -38,6 +41,12 @@ case "$1" in
   ;;
 esac
 
+%postun
+# Deletes directory when uninstall the package
+if [ "$1" = 0 ] && [ -d /var/chef/cookbooks/geoip ]; then
+  rm -rf /var/chef/cookbooks/geoip
+fi
+
 %files
 %defattr(0755,root,root)
 %{cookbook_path}
@@ -47,5 +56,8 @@ esac
 %doc
 
 %changelog
-* Thu Nov 24 2016 Juan J. Prieto <jjprieto@redborder.com> - 0.0.1-1
+* Thu Oct 10 2024 Miguel Negrón <manegron@redborder.com>
+- Add pre and postun
+
+* Thu Nov 24 2016 Juan J. Prieto <jjprieto@redborder.com>
 - first spec version
