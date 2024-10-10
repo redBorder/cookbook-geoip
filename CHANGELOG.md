@@ -1,9 +1,14 @@
 cookbook-geoip CHANGELOG
 ===============
 
+## 0.0.4
+
+  - Miguel Negrón
+    - [49cc243] Add pre and postun to clean the cookbook
+
 ## 0.0.3
 
-  - Miguel Negron
+  - Miguel Negrón
     - [93fcb56] lint resources
     - [fe9e2d7] lint recipes
     - [4da4374] lint providers
