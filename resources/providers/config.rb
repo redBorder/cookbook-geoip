@@ -16,6 +16,7 @@ action :add do
       command 'geoipupdate'
       ignore_failure true
       action :nothing
+      not_if { node['redborder']['geoip_key'].empty? }
     end
 
     template '/etc/GeoIP.conf' do
