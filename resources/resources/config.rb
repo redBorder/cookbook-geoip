@@ -4,5 +4,5 @@
 actions :add, :remove
 default_action :add
 
-attribute :user_id, kind_of: Integer, default: 712324
+attribute :user_id, kind_of: String
 attribute :license_key, kind_of: String

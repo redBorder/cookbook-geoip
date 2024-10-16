@@ -4,6 +4,7 @@
 action :add do
   user_id = new_resource.user_id
   license_key = new_resource.license_key
+
   begin
     %w(GeoIP GeoIP-GeoLite-data GeoIP-GeoLite-data-extra geoipupdate geoipupdate-cron).each do |pack|
       dnf_package pack do
@@ -16,7 +17,7 @@ action :add do
       command 'geoipupdate'
       ignore_failure true
       action :nothing
-      not_if { license_key.nil? || license_key.empty? }
+      not_if { user_id.nil? || user_id.empty? || license_key.nil? || license_key.empty? }
     end
 
     template '/etc/GeoIP.conf' do
