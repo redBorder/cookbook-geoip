@@ -1,11 +1,6 @@
 cookbook-geoip CHANGELOG
 ===============
 
-## 0.0.5
-
-  - Pablo Torres
-    - [284b3c9] Get license key from settings
-
 ## 0.0.4
 
   - Miguel Negrón
