@@ -1,6 +1,11 @@
 cookbook-geoip CHANGELOG
 ===============
 
+## 1.0.0
+
+  - ptorresred
+    - [01f22cc] bugfix/#18863/Remove default license of GeoIP and add a Setting to manualy install the license (#7)
+
 ## 0.0.4
 
   - Miguel Negrón
