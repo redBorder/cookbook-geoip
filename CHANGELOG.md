@@ -1,6 +1,13 @@
 cookbook-geoip CHANGELOG
 ===============
 
+## 1.0.1
+
+  - nilsver
+    - [e1afe8b] remove conflicts with older versions
+    - [d3219cb] add database GeoLite2-ASN
+    - [8ca63c5] adapt cookbook, and add cron job here
+
 ## 1.0.0
 
   - ptorresred
