@@ -3,16 +3,10 @@ cookbook-geoip CHANGELOG
 
 ## 1.0.1
 
-  - PedroLimaRB
-    - [c056e73] Merge pull request #9 from redBorder/bugfix/19378_update_cookbook_to_version_7
   - nilsver
     - [e1afe8b] remove conflicts with older versions
     - [d3219cb] add database GeoLite2-ASN
     - [8ca63c5] adapt cookbook, and add cron job here
-  - Miguel Negron
-    - [f210f2c] Bump version
-  - ptorresred
-    - [01f22cc] bugfix/#18863/Remove default license of GeoIP and add a Setting to manualy install the license (#7)
 
 ## 1.0.0
 
