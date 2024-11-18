@@ -6,7 +6,12 @@ action :add do
   license_key = new_resource.license_key
 
   begin
-    %w(GeoIP GeoIP-GeoLite-data GeoIP-GeoLite-data-extra geoipupdate geoipupdate-cron).each do |pack|
+    dnf_package 'geoipupdate-cron' do
+      action :remove
+      flush_cache [:before]
+    end
+
+    %w(GeoIP GeoIP-GeoLite-data GeoIP-GeoLite-data-extra geoipupdate).each do |pack|
       dnf_package pack do
         action :upgrade
         flush_cache [:before]
@@ -28,6 +33,15 @@ action :add do
       cookbook 'geoip'
       variables(user_id: user_id, license_key: license_key)
       notifies :run, 'execute[geoipupdate]', :delayed
+    end
+
+    template '/etc/cron.weekly/geoipupdate' do
+      source 'geoipupdate.cron.erb'
+      owner 'root'
+      group 'root'
+      mode '0755'
+      cookbook 'geoip'
+      not_if { user_id.nil? || user_id.empty? || license_key.nil? || license_key.empty? }
     end
 
     Chef::Log.info('GeoIP cookbook has been processed')
