@@ -6,6 +6,11 @@ action :add do
   license_key = new_resource.license_key
 
   begin
+    dnf_package 'geoipupdate-cron' do
+      action :remove
+      flush_cache [:before]
+    end
+
     %w(GeoIP GeoIP-GeoLite-data GeoIP-GeoLite-data-extra geoipupdate).each do |pack|
       dnf_package pack do
         action :upgrade
