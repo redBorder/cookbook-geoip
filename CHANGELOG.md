@@ -1,6 +1,11 @@
 cookbook-geoip CHANGELOG
 ===============
 
+## 1.0.2
+
+  - nilsver
+    - [39ceb87] remove flush cache
+
 ## 1.0.1
 
   - nilsver
