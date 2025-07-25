@@ -1,6 +1,11 @@
 cookbook-geoip CHANGELOG
 ===============
 
+## 1.0.3
+
+  - jnavarrorb
+    - [40b56d3] Remove executable permissions on non-executable files
+
 ## 1.0.2
 
   - nilsver
