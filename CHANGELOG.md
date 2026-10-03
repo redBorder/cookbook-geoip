@@ -1,6 +1,11 @@
 cookbook-geoip CHANGELOG
 ===============
 
+## 1.0.4
+
+  - manegron
+    - [b147e67] Upload cookbook only if opscode-erchef is active
+
 ## 1.0.3
 
   - jnavarrorb
